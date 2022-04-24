@@ -21,8 +21,10 @@ def get_lat_longs(data_frame: pd.DataFrame) -> List[List[float]]:
     output = [x for x in output if x is not None]
     return output
 
-
-data = pd.read_csv('test.csv')
+url = 'https://docs.google.com/spreadsheets/d/1PG0qEpWlBS8FYxCOwYU13VbmpY3UZFEvQ_oMXLl5zDE/view?usp=sharing'
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+data = pd.read_csv(path, engine = 'python')
+#data = pd.read_csv('test.csv')
 data.head()
 
 city_locs = get_lat_longs(data)
